@@ -165,3 +165,44 @@ class CollapsibleTimeline {
     }
   }
 }
+
+const timelineItems = document.querySelectorAll(".timeline__item");
+
+timelineItems.forEach((item) => {
+  const arrow = item.querySelector(".timeline__arrow");
+  const content = item.querySelector(".timeline__item-body");
+
+  arrow.addEventListener("click", () => {
+    item.classList.toggle("timeline__item--expanded");
+    content.classList.toggle("timeline__item-body--expanded");
+  });
+});
+
+const contactButton = document.getElementById("contact-button");
+const contactForm = document.getElementById("contact-form");
+
+contactButton.addEventListener("click", (e) => {
+  e.stopPropagation();
+  contactForm.style.display =
+    contactForm.style.display === "block" ? "none" : "block";
+  contactButton.classList.toggle("open");
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target !== contactButton && !contactForm.contains(e.target)) {
+    contactForm.style.display = "none";
+    contactButton.classList.remove("open");
+  }
+});
+
+contactForm.addEventListener("click", (e) => {
+  e.stopPropagation();
+});
+
+function thanks() {
+  alert("Thank you for your message!");
+}
+
+function reset() {
+  document.querySelector(".form1").reset();
+}
