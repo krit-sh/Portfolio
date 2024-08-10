@@ -58,7 +58,7 @@
     <div class="container">
       <div class="about-me">
         <div class="music">
-          <iframe
+          <!-- <iframe
             src="https://open.spotify.com/embed/track/6LNcsgZONyra3eEwSdCGN8?utm_source=generator"
             width="100%"
             height="352"
@@ -66,7 +66,7 @@
             allowfullscreen=""
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
-          ></iframe>
+          ></iframe> -->
         </div>
         <div class="aboutme-content">
           <h1 class="aboutme-heading">About Me</h1>
@@ -353,7 +353,7 @@
             </div>
           </div>
 
-          <div class="contact-button-container">
+          <!-- <div class="contact-button-container">
             <button class="round-button" id="contact-button">
               <img
                 width="24"
@@ -363,7 +363,11 @@
               />
             </button>
             <div class="wrapper" id="contact-form" style="display: none">
-              <form class="form1" onsubmit="thanks(); reset(); return false;">
+              <form
+                class="form1"
+                id="contact-form"
+                onsubmit="thanks(); reset(); return false;"
+              >
                 <div class="pageTitle title">Contact.</div>
                 <input type="text" class="name formEntry" placeholder="Name" />
                 <input
@@ -375,7 +379,63 @@
                   class="message formEntry"
                   placeholder="Message"
                 ></textarea>
-                <button class="submit formEntry">Submit</button>
+                <button id="button" class="submit formEntry">Submit</button>
+              </form>
+            </div>
+            <div class="download-button-container" id="w2">
+              <button class="round-button" id="download-button">
+                <img
+                  width="24"
+                  height="24"
+                  src="https://img.icons8.com/pulsar-line/48/download.png"
+                  alt="download-icon"
+                />
+              </button>
+            </div>
+          </div> -->
+          <div class="download-button-container" id="w2">
+            <button class="round-button" id="download-button">
+              <a href="Asset/file.pdf" download="My Resume"><img
+                width="24"
+                height="24"
+                src="https://img.icons8.com/pulsar-line/48/download.png"
+                alt="download-icon"
+              /></a>
+            </button>
+          </div>
+          <div class="contact-button-container">
+            <button class="round-button" id="contact-button">
+              <img
+                width="24"
+                height="24"
+                src="https://img.icons8.com/pulsar-line/48/about-me-male.png"
+                alt="about-me-male"
+              />
+            </button>
+            <div
+              class="wrapper"
+              id="contact-form-wrapper"
+              style="display: none"
+            >
+              <form
+                class="form1"
+                id="contact-form"
+                onsubmit="thanks(); reset(); return false;"
+              >
+                <div class="pageTitle title">Contact.</div>
+                <input type="text" class="name formEntry" placeholder="Name" />
+                <input
+                  type="text"
+                  class="email formEntry"
+                  placeholder="Email"
+                />
+                <textarea
+                  class="message formEntry"
+                  placeholder="Message"
+                ></textarea>
+                <button id="submit-button" class="submit formEntry">
+                  Submit
+                </button>
               </form>
             </div>
           </div>

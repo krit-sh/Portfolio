@@ -64,7 +64,7 @@ for (let i = 0; i < numParticles; i++) {
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  particles.forEach((particle) => {
+  particles.forEach((particle) => { 
     particle.update();
     particle.draw(ctx);
   });
@@ -206,3 +206,12 @@ function thanks() {
 function reset() {
   document.querySelector(".form1").reset();
 }
+
+document.getElementById('contact-button').addEventListener('click', function () {
+  var contactFormWrapper = document.getElementById('contact-form-wrapper');
+  if (contactFormWrapper.style.display === 'none' || contactFormWrapper.style.display === '') {
+      contactFormWrapper.style.display = 'block';
+  } else {
+      contactFormWrapper.style.display = 'none';
+  }
+});
