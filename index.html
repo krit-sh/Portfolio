@@ -58,7 +58,7 @@
     <div class="container">
       <div class="about-me">
         <div class="music">
-          <!-- <iframe
+          <iframe
             src="https://open.spotify.com/embed/track/6LNcsgZONyra3eEwSdCGN8?utm_source=generator"
             width="100%"
             height="352"
@@ -66,7 +66,7 @@
             allowfullscreen=""
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
-          ></iframe> -->
+          ></iframe>
         </div>
         <div class="aboutme-content">
           <h1 class="aboutme-heading">About Me</h1>
@@ -97,10 +97,6 @@
       </symbol>
     </svg>
     <div id="timeline" class="timeline">
-      <!--      <div class="btn-group">-->
-      <!--        <button class="btn" type="button" data-action="expand">Expand All</button>-->
-      <!--        <button class="btn" type="button" data-action="collapse">Collapse All</button>-->
-      <!--      </div>-->
       <div class="timeline__item">
         <div class="timeline__item-header">
           <button
@@ -226,8 +222,7 @@
         </div>
       </div>
     </div>
-
-    <!--<h1 class="skills-heading">Skills</h1>-->
+    <!-- skills -->
     <h1 class="skills-heading">Skills</h1>
 
     <section class="skills-section-container" id="skills">
@@ -284,7 +279,7 @@
         </div>
       </div>
     </section>
-
+    <!-- footer -->
     <footer id="footer">
       <div class="footer-background">
         <div class="footer-blob"></div>
@@ -352,54 +347,14 @@
               ></a>
             </div>
           </div>
-
-          <!-- <div class="contact-button-container">
-            <button class="round-button" id="contact-button">
-              <img
-                width="24"
-                height="24"
-                src="https://img.icons8.com/pulsar-line/48/about-me-male.png"
-                alt="about-me-male"
-              />
-            </button>
-            <div class="wrapper" id="contact-form" style="display: none">
-              <form
-                class="form1"
-                id="contact-form"
-                onsubmit="thanks(); reset(); return false;"
-              >
-                <div class="pageTitle title">Contact.</div>
-                <input type="text" class="name formEntry" placeholder="Name" />
-                <input
-                  type="text"
-                  class="email formEntry"
-                  placeholder="Email"
-                />
-                <textarea
-                  class="message formEntry"
-                  placeholder="Message"
-                ></textarea>
-                <button id="button" class="submit formEntry">Submit</button>
-              </form>
-            </div>
-            <div class="download-button-container" id="w2">
-              <button class="round-button" id="download-button">
-                <img
+          <div class="download-button-container" id="w2">
+            <button class="round-button" id="download-button">
+              <a href="Asset/file.pdf" download="My Resume"
+                ><img
                   width="24"
                   height="24"
                   src="https://img.icons8.com/pulsar-line/48/download.png"
                   alt="download-icon"
-                />
-              </button>
-            </div>
-          </div> -->
-          <div class="download-button-container" id="w2">
-            <button class="round-button" id="download-button">
-              <a href="Asset/file.pdf" download="My Resume"><img
-                width="24"
-                height="24"
-                src="https://img.icons8.com/pulsar-line/48/download.png"
-                alt="download-icon"
               /></a>
             </button>
           </div>
@@ -463,14 +418,5 @@
     <script>
       AOS.init();
     </script>
-    <!-- 
-    <script>
-      document
-        .getElementById("contact-button")
-        .addEventListener("click", function () {
-          document.getElementById("contact-form").style.display = "block";
-          document.getElementById("contact-form").style.opacity = "1";
-        });
-    </script> -->
   </body>
 </html>
