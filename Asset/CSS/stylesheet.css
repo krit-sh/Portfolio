@@ -470,13 +470,13 @@ h1 {
 
 @media (max-width: 992px) {
   .tech-stack-box {
-    width: calc(20% - 20px);
+    width: calc(35% - 20px);
   }
 }
 
 @media (max-width: 768px) {
   .tech-stack-box {
-    width: calc(40% - 20px);
+    width: calc(50% - 20px);
   }
 }
 /* footer */
