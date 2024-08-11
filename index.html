@@ -30,6 +30,17 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "lOS6XKc7G7IlS7YUa",
+        });
+      })();
+    </script>
   </head>
 
   <body>
@@ -378,17 +389,19 @@
                 onsubmit="thanks(); reset(); return false;"
               >
                 <div class="pageTitle title">Contact.</div>
-                <input type="text" class="name formEntry" placeholder="Name" />
+                <input type="text" id="name" class="name formEntry" placeholder="Name" />
                 <input
                   type="text"
                   class="email formEntry"
                   placeholder="Email"
+                  id="email"
                 />
                 <textarea
                   class="message formEntry"
                   placeholder="Message"
+                  id="subject"
                 ></textarea>
-                <button id="submit-button" class="submit formEntry">
+                <button id="submit-button" onclick="sendMail()" class="submit formEntry">
                   Submit
                 </button>
               </form>
