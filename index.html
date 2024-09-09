@@ -449,6 +449,30 @@
 
     <!-- Projects -->
     <h1 class="projects-heading">Projects</h1>
+    <div class="carousel-container">
+      <div class="carousel">
+          <div class="carousel-slide">
+              <img src="Asset/Images/ProjectImages/1.png" alt="Project 1">
+              <p>Bash Scripts Repository: "In this repository, you will find different folders or branches containing various Bash scripts that I have written."</p>
+          </div>
+          <div class="carousel-slide">
+              <img src="Asset/Images/ProjectImages/2.png" alt="Project 2">
+              <p>Portfolio Website: "A personal portfolio showcasing my projects, technical skills, and achievements. Explore my work in software development, scripting, and creative problem-solving."</p>
+          </div>
+          <div class="carousel-slide">
+              <img src="Asset/Images/ProjectImages/3.png" alt="Project 3">
+              <p>VHelpNGOs: "We make sure that the donations you make will be used in the right way and will help to support a cause."</p>
+          </div>
+          <div class="carousel-slide">
+              <img src="Asset/Images/ProjectImages/4.png" alt="Project 4">
+              <p>Todo List: "A streamlined task management system to organize daily goals and projects. Add, track, and manage tasks efficiently for better productivity."</p>
+          </div>
+      </div>
+      <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="next" onclick="moveSlide(1)">&#10095;</button>
+  </div>
+  
+    
 
     <!-- footer -->
     <footer id="footer">
@@ -601,5 +625,20 @@
     <script>
       AOS.init();
     </script>
+    <script>
+      let currentSlide = 0;
+      
+      function moveSlide(step) {
+          const slides = document.querySelectorAll('.carousel-slide');
+          const totalSlides = slides.length;
+      
+          currentSlide = (currentSlide + step + totalSlides) % totalSlides;
+          
+          const carousel = document.querySelector('.carousel');
+          const slideWidth = slides[0].clientWidth;
+          carousel.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+      }
+      </script>
+      
   </body>
 </html>
