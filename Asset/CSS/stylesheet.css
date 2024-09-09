@@ -483,23 +483,6 @@ h1 {
   opacity: 1;
 }
 
-/* @media (max-width: 1200px) {
-  .tech-stack-box {
-    width: calc(20% - 20px);
-  }
-}
-
-@media (max-width: 992px) {
-  .tech-stack-box {
-    width: calc(20% - 20px);
-  }
-}
-
-@media (max-width: 768px) {
-  .tech-stack-box {
-    width: calc(50% - 10%);
-  }
-} */
 @media (max-width: 1200px) {
   .tech-stack-box {
     width: calc(20% - 20px);
@@ -867,6 +850,14 @@ footer {
 }
 
 /* Project section */
+.projects-heading {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-family: "Bebas Neue", sans-serif;
+}
 .carousel-container {
   position: relative;
   width: 100%;
