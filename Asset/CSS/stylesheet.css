@@ -240,6 +240,7 @@ iframe {
 }
 
 /*TimeLine*/
+
 * {
   border: 0;
   box-sizing: border-box;
@@ -250,7 +251,7 @@ iframe {
   --hue: 223;
   --bg: hsl(var(--hue), 10%, 90%);
   --fg: hsl(var(--hue), 10%, 10%);
-  --primary: hsl(var(--hue), 90%, 50%);
+  --primary: hsl(30, 100%, 50%);
   --trans-dur: 0.3s;
   --trans-timing: cubic-bezier(0.65, 0, 0.35, 1);
 }
@@ -272,7 +273,23 @@ h1 {
   padding-top: 1.5rem;
   text-align: center;
 }
-
+.toggle-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.toggle-buttons button {
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color var(--trans-dur);
+}
+.toggle-buttons button.active {
+  background-color: hsl(199.7, 85.3%, 51.8%);
+}
 .timeline {
   margin: auto;
   padding: 0 1.5em;
@@ -381,7 +398,6 @@ h1 {
 .timeline__arrow[aria-expanded="true"] .timeline__arrow-icon {
   transform: rotate(0);
 }
-
 .timeline-heading,
 .aboutme-heading {
   text-align: center;
@@ -390,9 +406,14 @@ h1 {
   font-weight: bold;
   font-family: "Bebas Neue", sans-serif;
 }
-
 .timeline__item-body--expanded {
   height: auto;
+}
+.timeline {
+  display: none;
+}
+.timeline.active {
+  display: block;
 }
 
 /*Skills sections*/
@@ -494,17 +515,16 @@ h1 {
 @media (max-width: 768px) {
   .tech-stack-box {
     width: calc(50% - 10px);
-    font-size: 1.5em; 
+    font-size: 1.5em;
   }
 }
 
-@media (max-width: 480px) { 
+@media (max-width: 480px) {
   .tech-stack-box {
-    width: calc(50% - 10px); 
-    font-size: 2.0em; 
+    width: calc(50% - 10px);
+    font-size: 2em;
   }
 }
-
 
 /* footer */
 footer {
@@ -846,3 +866,12 @@ footer {
   }
 }
 
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  font-size: 10rem;
+  font-weight: 700;
+  color: #000000;
+}

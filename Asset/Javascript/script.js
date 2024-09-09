@@ -91,88 +91,120 @@ AOS.init({
 });
 
 // timeline
-class CollapsibleTimeline {
-  constructor(el) {
-    this.el = document.querySelector(el);
+// class CollapsibleTimeline {
+//   constructor(el) {
+//     this.el = document.querySelector(el);
 
-    this.init();
-  }
-  init() {
-    this.el?.addEventListener("click", this.itemAction.bind(this));
-  }
-  animateItemAction(button, ctrld, contentHeight, shouldCollapse) {
-    const expandedClass = "timeline__item-body--expanded";
-    const animOptions = {
-      duration: 300,
-      easing: "cubic-bezier(0.65,0,0.35,1)",
-    };
+//     this.init();
+//   }
+//   init() {
+//     this.el?.addEventListener("click", this.itemAction.bind(this));
+//   }
+//   animateItemAction(button, ctrld, contentHeight, shouldCollapse) {
+//     const expandedClass = "timeline__item-body--expanded";
+//     const animOptions = {
+//       duration: 300,
+//       easing: "cubic-bezier(0.65,0,0.35,1)",
+//     };
 
-    if (shouldCollapse) {
-      button.ariaExpanded = "false";
-      ctrld.ariaHidden = "true";
-      ctrld.classList.remove(expandedClass);
-      animOptions.duration *= 2;
-      this.animation = ctrld.animate(
-        [
-          { height: `${contentHeight}px` },
-          { height: `${contentHeight}px` },
-          { height: "0px" },
-        ],
-        animOptions
-      );
-    } else {
-      button.ariaExpanded = "true";
-      ctrld.ariaHidden = "false";
-      ctrld.classList.add(expandedClass);
-      this.animation = ctrld.animate(
-        [{ height: "0px" }, { height: `${contentHeight}px` }],
-        animOptions
-      );
-    }
-  }
-  itemAction(e) {
-    const { target } = e;
-    const action = target?.getAttribute("data-action");
-    const item = target?.getAttribute("data-item");
+//     if (shouldCollapse) {
+//       button.ariaExpanded = "false";
+//       ctrld.ariaHidden = "true";
+//       ctrld.classList.remove(expandedClass);
+//       animOptions.duration *= 2;
+//       this.animation = ctrld.animate(
+//         [
+//           { height: `${contentHeight}px` },
+//           { height: `${contentHeight}px` },
+//           { height: "0px" },
+//         ],
+//         animOptions
+//       );
+//     } else {
+//       button.ariaExpanded = "true";
+//       ctrld.ariaHidden = "false";
+//       ctrld.classList.add(expandedClass);
+//       this.animation = ctrld.animate(
+//         [{ height: "0px" }, { height: `${contentHeight}px` }],
+//         animOptions
+//       );
+//     }
+//   }
+//   itemAction(e) {
+//     const { target } = e;
+//     const action = target?.getAttribute("data-action");
+//     const item = target?.getAttribute("data-item");
 
-    if (action) {
-      const targetExpanded = action === "expand" ? "false" : "true";
-      const buttons = Array.from(
-        this.el?.querySelectorAll(`[aria-expanded="${targetExpanded}"]`)
-      );
-      const wasExpanded = action === "collapse";
+//     if (action) {
+//       const targetExpanded = action === "expand" ? "false" : "true";
+//       const buttons = Array.from(
+//         this.el?.querySelectorAll(`[aria-expanded="${targetExpanded}"]`)
+//       );
+//       const wasExpanded = action === "collapse";
 
-      for (let button of buttons) {
-        const buttonID = button.getAttribute("data-item");
-        const ctrld = this.el?.querySelector(`#item${buttonID}-ctrld`);
-        const contentHeight = ctrld.firstElementChild?.offsetHeight;
+//       for (let button of buttons) {
+//         const buttonID = button.getAttribute("data-item");
+//         const ctrld = this.el?.querySelector(`#item${buttonID}-ctrld`);
+//         const contentHeight = ctrld.firstElementChild?.offsetHeight;
 
-        this.animateItemAction(button, ctrld, contentHeight, wasExpanded);
-      }
-    } else if (item) {
-      const button = this.el?.querySelector(`[data-item="${item}"]`);
-      const expanded = button?.getAttribute("aria-expanded");
+//         this.animateItemAction(button, ctrld, contentHeight, wasExpanded);
+//       }
+//     } else if (item) {
+//       const button = this.el?.querySelector(`[data-item="${item}"]`);
+//       const expanded = button?.getAttribute("aria-expanded");
 
-      if (!expanded) return;
+//       if (!expanded) return;
 
-      const wasExpanded = expanded === "true";
-      const ctrld = this.el?.querySelector(`#item${item}-ctrld`);
-      const contentHeight = ctrld.firstElementChild?.offsetHeight;
+//       const wasExpanded = expanded === "true";
+//       const ctrld = this.el?.querySelector(`#item${item}-ctrld`);
+//       const contentHeight = ctrld.firstElementChild?.offsetHeight;
 
-      this.animateItemAction(button, ctrld, contentHeight, wasExpanded);
-    }
-  }
-}
+//       this.animateItemAction(button, ctrld, contentHeight, wasExpanded);
+//     }
+//   }
+// }
 
-const timelineItems = document.querySelectorAll(".timeline__item");
+// const timelineItems = document.querySelectorAll(".timeline__item");
+
+// timelineItems.forEach((item) => {
+//   const arrow = item.querySelector(".timeline__arrow");
+//   const content = item.querySelector(".timeline__item-body");
+
+//   arrow.addEventListener("click", () => {
+//     item.classList.toggle("timeline__item--expanded");
+//     content.classList.toggle("timeline__item-body--expanded");
+//   });
+// });
+
+document
+  .getElementById("educationButton")
+  .addEventListener("click", function () {
+    document.getElementById("educationTimeline").classList.add("active");
+    document.getElementById("certificatesTimeline").classList.remove("active");
+    this.classList.add("active");
+    document.getElementById("certificatesButton").classList.remove("active");
+  });
+
+document
+  .getElementById("certificatesButton")
+  .addEventListener("click", function () {
+    document.getElementById("certificatesTimeline").classList.add("active");
+    document.getElementById("educationTimeline").classList.remove("active");
+    this.classList.add("active");
+    document.getElementById("educationButton").classList.remove("active");
+  });
+
+const timelineItems = document.querySelectorAll(
+  ".timeline__item-header button"
+);
 
 timelineItems.forEach((item) => {
-  const arrow = item.querySelector(".timeline__arrow");
-  const content = item.querySelector(".timeline__item-body");
-
-  arrow.addEventListener("click", () => {
-    item.classList.toggle("timeline__item--expanded");
-    content.classList.toggle("timeline__item-body--expanded");
+  item.addEventListener("click", function () {
+    const body = document.getElementById(this.getAttribute("aria-controls"));
+    const expanded = this.getAttribute("aria-expanded") === "true";
+    this.setAttribute("aria-expanded", !expanded);
+    body.classList.toggle("timeline__item-body--expanded");
+    body.setAttribute("aria-hidden", expanded);
   });
 });
 
@@ -219,11 +251,13 @@ document
     }
   });
 
-  function sendMail(){
-    let parms={
-      name : document.getElementById("name").value,
-      email : document.getElementById("email").value,
-      subject : document.getElementById("subject").value,
-    }
-    emailjs.send("service_082v5qy","template_fwto5zt",parms).then(alert("Email sent!!"))
-  }
+function sendMail() {
+  let parms = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    subject: document.getElementById("subject").value,
+  };
+  emailjs
+    .send("service_082v5qy", "template_fwto5zt", parms)
+    .then(alert("Email sent!!"));
+}

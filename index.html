@@ -93,7 +93,7 @@
         <div class="col aboutme-content">
           <h1 class="aboutme-heading">About Me</h1>
           <p class="description">
-            Hi, my name is <strong>Ritesh Kumar</strong>. I'm a Full Stack
+            👋 Hi, my name is <strong>Ritesh Kumar</strong>. I'm a Full Stack
             Developer where I really value clean and readable code. Also, I'm
             very passionate about <strong>coding</strong>. I enjoy playing
             esports, and I'm a bit of a geek now and then.
@@ -104,7 +104,7 @@
 
     <!--Education-->
 
-    <h1 class="timeline-heading">Education Details</h1>
+    <h1 class="timeline-heading">Qualifications</h1>
 
     <svg display="none">
       <symbol id="arrow">
@@ -118,7 +118,13 @@
         />
       </symbol>
     </svg>
-    <div id="timeline" class="timeline">
+
+    <div class="toggle-buttons">
+      <button id="educationButton" class="active">Education</button>
+      <button id="certificatesButton">Certificates</button>
+    </div>
+
+    <div id="educationTimeline" class="timeline active">
       <div class="timeline__item">
         <div class="timeline__item-header">
           <button
@@ -199,7 +205,7 @@
         >
           <div class="timeline__item-body-content">
             <p class="timeline__item-p">Narayana Junior College</p>
-            <p class="timeline__item-p">Percentage: 79.6</p>
+            <p class="timeline__item-p">Percentage: 78.7%</p>
           </div>
         </div>
       </div>
@@ -226,7 +232,7 @@
           </button>
           <span class="timeline__dot"></span>
           <span id="item3-name" class="timeline__meta">
-            <time class="timeline__date" datetime="2001-09-09">2019</time><br />
+            <time class="timeline__date" datetime="1970-01-01">2019</time><br />
             <strong class="timeline__title">Matriculation</strong>
           </span>
         </div>
@@ -239,7 +245,129 @@
         >
           <div class="timeline__item-body-content">
             <p class="timeline__item-p">St. Martins High School</p>
-            <p class="timeline__item-p">Percentage: 77.6</p>
+            <p class="timeline__item-p">Percentage: 79.6%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="certificatesTimeline" class="timeline">
+      <div class="timeline__item">
+        <div class="timeline__item-header">
+          <button
+            class="timeline__arrow"
+            type="button"
+            id="item4"
+            aria-labelledby="item4-name"
+            aria-expanded="false"
+            aria-controls="item4-ctrld"
+            aria-haspopup="true"
+            data-item="4"
+          >
+            <svg
+              class="timeline__arrow-icon"
+              viewBox="0 0 24 24"
+              width="24px"
+              height="24px"
+            >
+              <use href="#arrow" />
+            </svg>
+          </button>
+          <span class="timeline__dot"></span>
+          <span id="item4-name" class="timeline__meta">
+            <time class="timeline__date" datetime="1970-01-01">2024</time><br />
+            <strong class="timeline__title">Amazon Web Services</strong>
+          </span>
+        </div>
+        <div
+          class="timeline__item-body"
+          id="item4-ctrld"
+          role="region"
+          aria-labelledby="item4"
+          aria-hidden="true"
+        >
+          <div class="timeline__item-body-content">
+            <p class="timeline__item-p">AWS Certified Cloud Practitioner</p>
+          </div>
+        </div>
+      </div>
+      <div class="timeline__item">
+        <div class="timeline__item-header">
+          <button
+            class="timeline__arrow"
+            type="button"
+            id="item5"
+            aria-labelledby="item5-name"
+            aria-expanded="false"
+            aria-controls="item5-ctrld"
+            aria-haspopup="true"
+            data-item="5"
+          >
+            <svg
+              class="timeline__arrow-icon"
+              viewBox="0 0 24 24"
+              width="24px"
+              height="24px"
+            >
+              <use href="#arrow" />
+            </svg>
+          </button>
+          <span class="timeline__dot"></span>
+          <span id="item5-name" class="timeline__meta">
+            <time class="timeline__date" datetime="1970-01-01">2022</time><br />
+            <strong class="timeline__title">Cloud Computing</strong>
+          </span>
+        </div>
+        <div
+          class="timeline__item-body"
+          id="item5-ctrld"
+          role="region"
+          aria-labelledby="item5"
+          aria-hidden="true"
+        >
+          <div class="timeline__item-body-content">
+            <p class="timeline__item-p">
+              Cloud Computing Workshop conducted by EXCELR
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="timeline__item">
+        <div class="timeline__item-header">
+          <button
+            class="timeline__arrow"
+            type="button"
+            id="item6"
+            aria-labelledby="item6-name"
+            aria-expanded="false"
+            aria-controls="item6-ctrld"
+            aria-haspopup="true"
+            data-item="6"
+          >
+            <svg
+              class="timeline__arrow-icon"
+              viewBox="0 0 24 24"
+              width="24px"
+              height="24px"
+            >
+              <use href="#arrow" />
+            </svg>
+          </button>
+          <span class="timeline__dot"></span>
+          <span id="item6-name" class="timeline__meta">
+            <time class="timeline__date" datetime="1973-10-17">2022</time><br />
+            <strong class="timeline__title">Verzeo</strong>
+          </span>
+        </div>
+        <div
+          class="timeline__item-body"
+          id="item6-ctrld"
+          role="region"
+          aria-labelledby="item6"
+          aria-hidden="true"
+        >
+          <div class="timeline__item-body-content">
+            <p class="timeline__item-p">Verzeo Certificate of Internship</p>
           </div>
         </div>
       </div>
@@ -258,14 +386,15 @@
             <img src="Asset/Images/Logo/csslogo.png" alt="CSS" />
             <div class="tooltip">CSS</div>
           </div>
-          <div id="padd" class="tech-stack-box aos-init" data-aos="fade-up">
-            <img src="Asset/Images/Logo/tailwind-css.svg" alt="Tailwind" />
-            <div class="tooltip">Tailwind CSS</div>
-          </div>
           <div class="tech-stack-box aos-init" data-aos="fade-up">
             <img src="Asset/Images/Logo/js.png" alt="JavaScript" />
             <div class="tooltip">JavaScript</div>
           </div>
+          <div id="padd" class="tech-stack-box aos-init" data-aos="fade-up">
+            <img src="Asset/Images/Logo/tailwind-css.svg" alt="Tailwind" />
+            <div class="tooltip">Tailwind CSS</div>
+          </div>
+
           <div class="tech-stack-box aos-init" data-aos="fade-up">
             <img src="Asset/Images/Logo/reactlogo.png" alt="React" />
             <div class="tooltip">React</div>
@@ -317,6 +446,10 @@
         </div>
       </div>
     </section>
+
+    <!-- Projects -->
+    <h1 class="projects-heading">Projects</h1>
+
     <!-- footer -->
     <footer id="footer">
       <div class="footer-background">
@@ -385,6 +518,7 @@
               ></a>
             </div>
           </div>
+
           <div class="download-button-container" id="w2">
             <button class="round-button" id="download-button">
               <a href="Asset/file.pdf" download="My Resume"
