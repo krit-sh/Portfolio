@@ -261,3 +261,16 @@ function sendMail() {
     .send("service_082v5qy", "template_fwto5zt", parms)
     .then(alert("Email sent!!"));
 }
+
+let currentSlide = 0;
+
+function moveSlide(step) {
+  const slides = document.querySelectorAll(".carousel-slide");
+  const totalSlides = slides.length;
+
+  currentSlide = (currentSlide + step + totalSlides) % totalSlides;
+
+  const carousel = document.querySelector(".carousel");
+  const slideWidth = slides[0].clientWidth;
+  carousel.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+}

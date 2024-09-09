@@ -11,7 +11,7 @@ body {
 canvas {
   display: block;
   background-color: #ffffff;
-}
+}   
 
 /* index-slide */
 .index-slide {
@@ -865,7 +865,7 @@ footer {
   margin: auto;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .carousel {
@@ -885,7 +885,8 @@ footer {
   border-bottom: 2px solid #ddd;
 }
 
-.prev, .next {
+.prev,
+.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -904,7 +905,8 @@ footer {
   right: 10px;
 }
 
-.prev:hover, .next:hover {
+.prev:hover,
+.next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
