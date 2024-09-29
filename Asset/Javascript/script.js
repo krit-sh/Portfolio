@@ -1,37 +1,37 @@
 class Particle {
   constructor(x, y, size, color, speed) {
-    this.x = x;
-    this.y = y;
-    this.size = size;
-    this.color = color;
-    this.speed = speed;
-    this.directionX = Math.random() * 2 - 1;
-    this.directionY = Math.random() * 2 - 1;
+      this.x = x;
+      this.y = y;
+      this.size = size;
+      this.color = color;
+      this.speed = speed;
+      this.directionX = Math.random() * 2 - 1;
+      this.directionY = Math.random() * 2 - 1;
   }
 
   // Update particle position
   update() {
-    this.x += this.directionX * this.speed;
-    this.y += this.directionY * this.speed;
+      this.x += this.directionX * this.speed;
+      this.y += this.directionY * this.speed;
 
-    if (this.x > window.innerWidth + this.size) {
-      this.x = -this.size;
-    } else if (this.x < -this.size) {
-      this.x = window.innerWidth + this.size;
-    }
-    if (this.y > window.innerHeight + this.size) {
-      this.y = -this.size;
-    } else if (this.y < -this.size) {
-      this.y = window.innerHeight + this.size;
-    }
+      if (this.x > window.innerWidth + this.size) {
+          this.x = -this.size;
+      } else if (this.x < -this.size) {
+          this.x = window.innerWidth + this.size;
+      }
+      if (this.y > window.innerHeight + this.size) {
+          this.y = -this.size;
+      } else if (this.y < -this.size) {
+          this.y = window.innerHeight + this.size;
+      }
   }
 
   // Draw the particle on the canvas
   draw(ctx) {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fillStyle = this.color;
-    ctx.fill();
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.fill();
   }
 }
 
@@ -65,8 +65,8 @@ function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   particles.forEach((particle) => {
-    particle.update();
-    particle.draw(ctx);
+      particle.update();
+      particle.draw(ctx);
   });
 
   requestAnimationFrame(animate);
@@ -77,6 +77,10 @@ animate();
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  particles.forEach((particle) => {
+      particle.x = randomRange(0, canvas.width);
+      particle.y = randomRange(0, canvas.height);
+  });
 });
 
 // Skills
@@ -92,20 +96,20 @@ AOS.init({
 
 document
   .getElementById("educationButton")
-  .addEventListener("click", function () {
-    document.getElementById("educationTimeline").classList.add("active");
-    document.getElementById("certificatesTimeline").classList.remove("active");
-    this.classList.add("active");
-    document.getElementById("certificatesButton").classList.remove("active");
+  .addEventListener("click", function() {
+      document.getElementById("educationTimeline").classList.add("active");
+      document.getElementById("certificatesTimeline").classList.remove("active");
+      this.classList.add("active");
+      document.getElementById("certificatesButton").classList.remove("active");
   });
 
 document
   .getElementById("certificatesButton")
-  .addEventListener("click", function () {
-    document.getElementById("certificatesTimeline").classList.add("active");
-    document.getElementById("educationTimeline").classList.remove("active");
-    this.classList.add("active");
-    document.getElementById("educationButton").classList.remove("active");
+  .addEventListener("click", function() {
+      document.getElementById("certificatesTimeline").classList.add("active");
+      document.getElementById("educationTimeline").classList.remove("active");
+      this.classList.add("active");
+      document.getElementById("educationButton").classList.remove("active");
   });
 
 const timelineItems = document.querySelectorAll(
@@ -113,12 +117,12 @@ const timelineItems = document.querySelectorAll(
 );
 
 timelineItems.forEach((item) => {
-  item.addEventListener("click", function () {
-    const body = document.getElementById(this.getAttribute("aria-controls"));
-    const expanded = this.getAttribute("aria-expanded") === "true";
-    this.setAttribute("aria-expanded", !expanded);
-    body.classList.toggle("timeline__item-body--expanded");
-    body.setAttribute("aria-hidden", expanded);
+  item.addEventListener("click", function() {
+      const body = document.getElementById(this.getAttribute("aria-controls"));
+      const expanded = this.getAttribute("aria-expanded") === "true";
+      this.setAttribute("aria-expanded", !expanded);
+      body.classList.toggle("timeline__item-body--expanded");
+      body.setAttribute("aria-hidden", expanded);
   });
 });
 
@@ -128,14 +132,14 @@ const contactForm = document.getElementById("contact-form");
 contactButton.addEventListener("click", (e) => {
   e.stopPropagation();
   contactForm.style.display =
-    contactForm.style.display === "block" ? "none" : "block";
+      contactForm.style.display === "block" ? "none" : "block";
   contactButton.classList.toggle("open");
 });
 
 document.addEventListener("click", (e) => {
   if (e.target !== contactButton && !contactForm.contains(e.target)) {
-    contactForm.style.display = "none";
-    contactButton.classList.remove("open");
+      contactForm.style.display = "none";
+      contactButton.classList.remove("open");
   }
 });
 
@@ -153,27 +157,27 @@ function reset() {
 
 document
   .getElementById("contact-button")
-  .addEventListener("click", function () {
-    var contactFormWrapper = document.getElementById("contact-form-wrapper");
-    if (
-      contactFormWrapper.style.display === "none" ||
-      contactFormWrapper.style.display === ""
-    ) {
-      contactFormWrapper.style.display = "block";
-    } else {
-      contactFormWrapper.style.display = "none";
-    }
+  .addEventListener("click", function() {
+      var contactFormWrapper = document.getElementById("contact-form-wrapper");
+      if (
+          contactFormWrapper.style.display === "none" ||
+          contactFormWrapper.style.display === ""
+      ) {
+          contactFormWrapper.style.display = "block";
+      } else {
+          contactFormWrapper.style.display = "none";
+      }
   });
 
 function sendMail() {
   let parms = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    subject: document.getElementById("subject").value,
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      subject: document.getElementById("subject").value,
   };
   emailjs
-    .send("service_082v5qy", "template_fwto5zt", parms)
-    .then(alert("Email sent!!"));
+      .send("service_082v5qy", "template_fwto5zt", parms)
+      .then(alert("Email sent!!"));
 }
 
 let currentSlide = 0;
