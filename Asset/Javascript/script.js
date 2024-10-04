@@ -1,87 +1,85 @@
 class Particle {
   constructor(x, y, size, color, speed) {
-      this.x = x;
-      this.y = y;
-      this.size = size;
-      this.color = color;
-      this.speed = speed;
-      this.directionX = Math.random() * 2 - 1;
-      this.directionY = Math.random() * 2 - 1;
+    this.x = x;
+    this.y = y;
+    this.size = size;
+    this.color = color;
+    this.speed = speed;
+    this.directionX = Math.random() * 2 - 1;
+    this.directionY = Math.random() * 2 - 1;
   }
 
-  // Update particle position
   update() {
-      this.x += this.directionX * this.speed;
-      this.y += this.directionY * this.speed;
+    this.x += this.directionX * this.speed;
+    this.y += this.directionY * this.speed;
 
-      if (this.x > window.innerWidth + this.size) {
-          this.x = -this.size;
-      } else if (this.x < -this.size) {
-          this.x = window.innerWidth + this.size;
-      }
-      if (this.y > window.innerHeight + this.size) {
-          this.y = -this.size;
-      } else if (this.y < -this.size) {
-          this.y = window.innerHeight + this.size;
-      }
+    if (this.x > window.innerWidth || this.x < 0) {
+      this.directionX *= -1;
+    }
+    if (this.y > window.innerHeight || this.y < 0) {
+      this.directionY *= -1;
+    }
   }
 
-  // Draw the particle on the canvas
   draw(ctx) {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = this.color;
-      ctx.fill();
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.fill();
   }
 }
 
-// Function to generate random number within a range
-function randomRange(min, max) {
-  return Math.random() * (max - min) + min;
+let canvas, ctx, particles;
+
+function initParticles() {
+  canvas = document.getElementById("background");
+  ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  particles = [];
+  const numParticles = 100;
+
+  for (let i = 0; i < numParticles; i++) {
+    const size = Math.random() * 3 + 1;
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * canvas.height;
+    const color = document.body.classList.contains('dark-mode') ? "#ffffff" : "#000000";
+    const speed = Math.random() * 0.5 + 1;
+
+    particles.push(new Particle(x, y, size, color, speed));
+  }
 }
 
-// Initialize canvas and particles
-const canvas = document.getElementById("background");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const particles = [];
-const numParticles = 100;
-
-// Create particles
-for (let i = 0; i < numParticles; i++) {
-  const size = randomRange(1, 4);
-  const x = randomRange(0, canvas.width);
-  const y = randomRange(0, canvas.height);
-  const color = "#000000";
-  const speed = randomRange(0.5, 1.5);
-
-  particles.push(new Particle(x, y, size, color, speed));
-}
-
-// Animation loop
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   particles.forEach((particle) => {
-      particle.update();
-      particle.draw(ctx);
+    particle.update();
+    particle.draw(ctx);
   });
 
   requestAnimationFrame(animate);
 }
 
-// Start animation
-animate();
+function updateParticleColors(isDarkMode) {
+  const color = isDarkMode ? "#ffffff" : "#000000";
+  particles.forEach(particle => {
+    particle.color = color;
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initParticles();
+  animate();
+});
+
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  particles.forEach((particle) => {
-      particle.x = randomRange(0, canvas.width);
-      particle.y = randomRange(0, canvas.height);
-  });
+  initParticles();
 });
+window.updateParticleColors = updateParticleColors;
 
 // Skills
 AOS.init({
@@ -92,6 +90,27 @@ AOS.init({
   offset: 0,
   mirror: false,
   anchorPlacement: "top-bottom",
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const skillsButton = document.getElementById('skillsButton');
+  const toolsButton = document.getElementById('toolsButton');
+  const skillsSection = document.getElementById('skillsSection');
+  const toolsSection = document.getElementById('toolsSection');
+
+  skillsButton.addEventListener('click', function() {
+    skillsSection.classList.add('active');
+    toolsSection.classList.remove('active');
+    skillsButton.classList.add('active');
+    toolsButton.classList.remove('active');
+  });
+
+  toolsButton.addEventListener('click', function() {
+    toolsSection.classList.add('active');
+    skillsSection.classList.remove('active');
+    toolsButton.classList.add('active');
+    skillsButton.classList.remove('active');
+  });
 });
 
 document
@@ -126,60 +145,6 @@ timelineItems.forEach((item) => {
   });
 });
 
-const contactButton = document.getElementById("contact-button");
-const contactForm = document.getElementById("contact-form");
-
-contactButton.addEventListener("click", (e) => {
-  e.stopPropagation();
-  contactForm.style.display =
-      contactForm.style.display === "block" ? "none" : "block";
-  contactButton.classList.toggle("open");
-});
-
-document.addEventListener("click", (e) => {
-  if (e.target !== contactButton && !contactForm.contains(e.target)) {
-      contactForm.style.display = "none";
-      contactButton.classList.remove("open");
-  }
-});
-
-contactForm.addEventListener("click", (e) => {
-  e.stopPropagation();
-});
-
-function thanks() {
-  alert("Thank you for your message!");
-}
-
-function reset() {
-  document.querySelector(".form1").reset();
-}
-
-document
-  .getElementById("contact-button")
-  .addEventListener("click", function() {
-      var contactFormWrapper = document.getElementById("contact-form-wrapper");
-      if (
-          contactFormWrapper.style.display === "none" ||
-          contactFormWrapper.style.display === ""
-      ) {
-          contactFormWrapper.style.display = "block";
-      } else {
-          contactFormWrapper.style.display = "none";
-      }
-  });
-
-function sendMail() {
-  let parms = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      subject: document.getElementById("subject").value,
-  };
-  emailjs
-      .send("service_082v5qy", "template_fwto5zt", parms)
-      .then(alert("Email sent!!"));
-}
-
 let currentSlide = 0;
 
 function moveSlide(step) {
@@ -191,4 +156,9 @@ function moveSlide(step) {
   const carousel = document.querySelector(".carousel");
   const slideWidth = slides[0].clientWidth;
   carousel.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+}
+
+function openURL() {
+  var url = "Asset/file.pdf";
+  window.open(url, "_blank");
 }
