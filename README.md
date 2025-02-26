@@ -1,43 +1,39 @@
-# Ritesh Kumar - Portfolio Website
+# Ritesh Kumar - Portfolio Website  
 
-Welcome to my personal portfolio website! This website showcases my projects, skills, and professional experience in a clean and interactive design.
+Welcome to my personal portfolio website! This site showcases my projects, skills, and professional experience with a clean and interactive design.  
 
-## 🌟 Features
+## 🌟 Features  
 
-- **Home Page:** A brief introduction about me, my skills, and a link to my resume.
-- **Projects:** A showcase of my projects, including descriptions and links to GitHub repositories.
-- **Experience & Education:** Details about my academic background and professional experience.
-- **Contact:** A section with my contact details and social media links.
+- **Home Page:** Introduction, skills, and a link to my resume.  
+- **Projects:** A showcase of my work with descriptions and GitHub links.  
+- **Experience & Education:** Details about my background and expertise.  
+- **Contact:** My contact information and social media links.  
 
-## 🔧 Technologies Used
+## 🔧 Technologies Used  
 
-- **HTML, CSS, JavaScript** – Frontend development
-- **CSS Frameworks** – Used for better styling and responsiveness
-- **GitHub Pages** – Hosting the website
+- **HTML, CSS, JavaScript** – Frontend development  
+- **CSS Frameworks** – For styling and responsiveness  
+- **GitHub Pages** – Website hosting  
 
-## 🚀 Live Demo
+## 🚀 Live Demo  
 
-Check out my portfolio here: [VHelpNGOs](https://krit-sh.github.io/VHelpNGOs/)  
-*(Replace with the actual link if different)*
+🔗 [Visit My Portfolio](https://krit-sh.github.io/Portfolio/)  
 
-## 📂 Folder Structure
+## 📂 Folder Structure  
 
 ```
-📂 assets
- ┣ 📂 CSS (Contains all stylesheets)
- ┣ 📂 images (Holds website images)
- ┣ 📂 javascript (Includes scripts for interactive features)
-📄 index.html (Main homepage)
-📄 about.html (About me page)
-📄 projects.html (Projects showcase)
-📄 contact.html (Contact details)
-📄 README.md (This file)
-```
+📂 assets  
+ ┣ 📂 CSS (Website styles)  
+ ┣ 📂 images (All images used)  
+ ┣ 📂 javascript (Interactive scripts)  
+📄 index.html (Homepage)  
+📄 README.md (This file)  
+```  
 
-## 📬 Contact Me
+## 📬 Contact Me  
 
-- **GitHub:** [krit-sh](https://github.com/krit-sh)
-- **LinkedIn:** [Your LinkedIn Profile](#)
-- **Email:** your-email@example.com  
+- **GitHub:** [krit-sh](https://github.com/krit-sh)  
+- **LinkedIn:** [Ritesh Kumar](www.linkedin.com/in/kritesh14)  
+- **Email:** kritesh1401@gmail.com  
 
-Feel free to explore my website and connect with me!
+Explore my portfolio and connect with me! 🚀  
