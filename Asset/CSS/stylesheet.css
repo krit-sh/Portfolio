@@ -79,12 +79,18 @@ body {
   opacity: 0.8;
 }
 
-#hello-friend, .about-me, .tech-stack-box, .tooltip,
+#hello-friend, .tech-stack-box, .tooltip,
 .carousel-slide p, .icon-links a, .timeline,
-.container, .music, iframe, .toggle-buttons button, .timeline__item-body,
+.toggle-buttons button, .timeline__item-body,
 .carousel-container, .prev, .next, .footer-background, .footer-foreground,
 .social-media-container a, .wrapper, .projects-heading, .skills-heading, .timeline-heading {
   background-color: var(--bg-color);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+.container, .music, iframe,.about-me {
+  background-color: transparent;
   color: var(--text-color);
   border-color: var(--border-color);
 }
